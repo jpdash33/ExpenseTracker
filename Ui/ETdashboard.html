@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+        integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+
+    <title>Expense Tracker/Dashboard</title>
+</head>
+
+<body>
+    <nav class="navbar" id="nav">
+        <div class="logo"> Expense Tracker </div>
+
+        <div class="nav-links">
+            <a href="EThome.html">Home</a>
+            <a href="EThistory.html">Expense History</a>
+            <a href="ETdashboard.html" class="active">Dashboard</a>
+            <a href="#" id="out">Log out</a>
+
+        </div>
+    </nav>
+
+
+
+    <!-- DASHBOARD HEADER -->
+    <div class="dashboard-header">
+        <div>
+            <h1>Dashboard</h1>
+            <p>Overview of your income, expenses and balance.</p>
+        </div>
+    </div>
+
+
+    <!-- SUMMARY CARDS -->
+    <div class="dashboard-container">
+
+        <div class="summary-grid">
+
+            <!-- TOTAL INCOME -->
+            <div class="summary-card income-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-arrow-down"></i>
+                </div>
+
+                <div class="card-content">
+                    <span>Total Income</span>
+                    <h2>₹ <span id="total-income">0</span></h2>
+                </div>
+            </div>
+
+
+            <!-- TOTAL EXPENSE -->
+            <div class="summary-card expense-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-arrow-up"></i>
+                </div>
+
+                <div class="card-content">
+                    <span>Total Expense</span>
+                    <h2>₹ <span id="total-expense">0</span></h2>
+                </div>
+            </div>
+
+
+            <!-- REMAINING -->
+            <div class="summary-card balance-card">
+                <div class="card-icon">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+
+                <div class="card-content">
+                    <span>Remaining Balance</span>
+                    <h2>₹ <span id="remaining-balance">0</span></h2>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- EXPENSE STATUS -->
+        <div class="expense-status-card">
+
+            <div class="status-left">
+                <div class="status-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+
+                <div>
+                    <span class="status-label">Expense Status</span>
+                    <h2 id="expense-status">Low</h2>
+                </div>
+            </div>
+
+            <div class="status-info">
+                <p id="status-message">
+                    Your expenses are currently under control.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- FUTURE GRAPH AREA -->
+        <div class="future-graph">
+
+            <div class="future-icon">
+                <i class="fa-solid fa-chart-column"></i>
+            </div>
+            <h2>Expense Analytics</h2>
+            <p> Graphs and detailed expense analytics will appear here. </p>
+        </div>
+    </div>
+
+
+
+    <script src="/eel.js"></script>
+    <script src="ETdashboard.js"></script>
+    <script src="ETlogout.js"></script>
+</body>
+
+</html>

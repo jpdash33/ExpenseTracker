@@ -1,0 +1,207 @@
+/* =========================
+   INCOME MODAL
+========================= */
+.income-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 9999;
+}
+
+/* Show modal */
+.income-overlay.show {
+    display: flex;
+}
+
+/* Modal */
+.income-modal {
+    width: 92%;
+    max-width: 500px;
+    padding: 30px;
+    background: rgba(20, 42, 33, 0.96);
+    border: 1px solid rgba(74, 222, 128, 0.25);
+    border-radius: 20px;
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    animation: incomePopup 0.25s ease;
+}
+
+@keyframes incomePopup {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Header */
+.income-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.income-header>div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.income-header i {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(74, 222, 128, 0.15);
+    color: var(--accent);
+    font-size: 20px;
+}
+
+.income-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Close button */
+.close-income {
+    width: 35px;
+    height: 35px;
+    border: none;
+    background: transparent;
+    color: #a8b8b0;
+    font-size: 28px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.2s ease;
+}
+
+.close-income:hover {
+    background: rgba(239, 68, 68, 0.12);
+    color: #fca5a5;
+}
+
+/* Labels */
+.income-modal label {
+    display: block;
+    margin: 17px 0 8px;
+    color: #d4ded9;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Inputs */
+.income-modal input {
+    width: 100%;
+    height: 48px;
+    padding: 0 15px;
+    background: var(--input-bg);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    outline: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.25s ease;
+}
+
+.income-modal input::placeholder {
+    color: #71847b;
+}
+
+.income-modal input:hover {
+    border-color: rgba(74, 222, 128, 0.35);
+}
+
+.income-modal input:focus {
+    border-color: var(--accent);
+    background: rgba(74, 222, 128, 0.05);
+    box-shadow:
+        0 0 0 3px rgba(74, 222, 128, 0.08);
+}
+
+/* Remove number arrows */
+.income-modal input[type="number"]::-webkit-inner-spin-button,
+.income-modal input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.income-modal input[type="number"] {
+    appearance: textfield;
+}
+
+/* Buttons */
+.income-btn-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.income-btn-group button {
+    flex: 1;
+    height: 46px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+/* Save */
+.save-income {
+    background: var(--accent);
+    color: #062b16;
+    box-shadow:
+        0 8px 20px rgba(74, 222, 128, 0.15);
+}
+
+.save-income:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+}
+
+/* Cancel */
+.cancel-income {
+    background: rgba(255, 255, 255, 0.06);
+    color: #cbd5d0;
+    border: 1px solid rgba(255, 255, 255, 0.10) !important;
+}
+
+.cancel-income:hover {
+    background: rgba(239, 68, 68, 0.10);
+    border-color: rgba(239, 68, 68, 0.25) !important;
+    color: #fca5a5;
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+    .income-modal {
+        padding: 24px 20px;
+        border-radius: 16px;
+    }
+
+    .income-header h2 {
+        font-size: 21px;
+    }
+
+    .income-btn-group {
+        flex-direction: column;
+    }
+
+    .income-btn-group button {
+        width: 100%;
+    }
+}

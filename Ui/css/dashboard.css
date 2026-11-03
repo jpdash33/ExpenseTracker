@@ -1,0 +1,243 @@
+:root {
+    --bg: #0d241b;
+    --color: #ffffff;
+    --text-muted: #a8b8b0;
+    --accent: #4ade80;
+    --accent-dark: #22c55e;
+    --border: rgba(255, 255, 255, 0.10);
+    --card-bg: rgba(20, 42, 33, 0.82);
+}
+
+/* DASHBOARD HEADER */
+.dashboard-header {
+    width: 92%;
+    max-width: 1200px;
+    margin: 45px auto 30px;
+}
+
+.dashboard-header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.dashboard-header p {
+    margin-top: 8px;
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+/* MAIN CONTAINER */
+.dashboard-container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+}
+
+/* SUMMARY GRID */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* SUMMARY CARD */
+.summary-card {
+    min-height: 145px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: 0.25s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(74, 222, 128, 0.25);
+}
+
+/* CARD ICON */
+.card-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(74, 222, 128, 0.10);
+    color: var(--accent);
+    font-size: 22px;
+}
+
+/* CARD CONTENT */
+.card-content span {
+    display: block;
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.card-content h2 {
+    margin: 0;
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+/* EXPENSE STATUS */
+.expense-status-card {
+    margin-top: 25px;
+    min-height: 120px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+/* STATUS LEFT */
+.status-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.status-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(74, 222, 128, 0.10);
+    color: var(--accent);
+    font-size: 22px;
+}
+
+.status-label {
+    display: block;
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+#expense-status {
+    margin: 0;
+    color: var(--accent);
+    font-size: 24px;
+}
+
+/* STATUS MESSAGE */
+.status-info {
+    max-width: 450px;
+}
+
+.status-info p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* FUTURE GRAPH */
+.future-graph {
+    min-height: 260px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(20, 42, 33, 0.55);
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    color: var(--text-muted);
+}
+
+.future-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border-radius: 16px;
+    background: rgba(74, 222, 128, 0.08);
+    color: var(--accent);
+    font-size: 24px;
+}
+
+.future-graph h2 {
+    margin: 0 0 8px;
+    color: white;
+    font-size: 20px;
+}
+
+.future-graph p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* TABLET */
+@media (max-width: 850px) {
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .expense-status-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .status-info {
+        max-width: 100%;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 650px) {
+    .dashboard-header {
+        margin-top: 30px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 27px;
+    }
+
+    .dashboard-header p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .summary-card {
+        padding: 20px;
+    }
+
+    .card-content h2 {
+        font-size: 22px;
+    }
+
+    .expense-status-card {
+        padding: 20px;
+    }
+
+    .future-graph {
+        min-height: 220px;
+    }
+}

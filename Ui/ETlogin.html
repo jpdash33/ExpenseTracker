@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <title>Login</title>
+</head>
+
+<body>
+
+    <div class="main">
+        <h2>Login</h2>
+
+        <label for="user">User Name:</label>
+        <input type="text" id="user" placeholder="User name">
+
+        <label for="mail">Email:</label>
+        <input type="email" id="mail" placeholder="mail">
+
+        <label for="pass">Password:</label>
+        <input type="password" id="pass" placeholder="password">
+
+        <label for="con_pass">Conformation Password:</label>
+        <input type="password" id="con_pass" placeholder="Conformation password">
+
+        <p>
+            For security, please don't use your email account password.
+            Create a separate password for this application.
+        </p>
+
+        <div class="btn_grp">
+            <button onclick="login()">Create Account</button>
+            <button onclick="cancel()">Cancel</button>
+        </div>
+
+    </div>
+
+
+
+
+
+    <script src="/eel.js"></script>
+    <script src="ETlogin.js"></script>
+</body>
+
+</html>

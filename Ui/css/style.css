@@ -1,0 +1,108 @@
+:root {
+    --bg: #0d241b;
+    --color1: #2a4036;
+    --color2: #142a21;
+    --color: #ffffff;
+    --text-muted: #a8b8b0;
+    --accent: #4ade80;
+    --accent-dark: #22c55e;
+    --border: rgba(255, 255, 255, 0.10);
+    --input-bg: rgba(255, 255, 255, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top right, rgba(74, 222, 128, 0.10), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(34, 197, 94, 0.08), transparent 30%),
+        var(--bg);
+    color: var(--color);
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 45px;
+    background: rgba(20, 42, 33, 0.85);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Logo */
+.logo {
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    color: var(--color);
+}
+
+.logo::before {
+    content: "₹";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin-right: 9px;
+    border-radius: 9px;
+    background: rgba(74, 222, 128, 0.15);
+    color: var(--accent);
+    font-size: 17px;
+}
+
+/* Navigation */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-links a {
+    position: relative;
+    padding: 9px 15px;
+    text-decoration: none;
+    color: #b9c8c1;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* Active link */
+.nav-links a.active {
+    color: var(--accent);
+    background: rgba(74, 222, 128, 0.10);
+}
+
+/* Logout */
+.nav-links a:last-child {
+    color: #fca5a5;
+}
+
+.nav-links a:last-child:hover {
+    background: rgba(239, 68, 68, 0.12);
+    color: #f87171;
+}

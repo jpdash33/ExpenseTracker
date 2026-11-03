@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+        integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/income_home.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+
+    <title>Expense Tracker</title>
+</head>
+
+<body>
+
+    <nav class="navbar" id="nav">
+        <div class="logo"> Expense Tracker </div>
+
+        <div class="nav-links">
+            <a href="EThome.html" class="active">Home</a>
+            <a href="EThistory.html">Expense History</a>
+            <a href="ETdashboard.html">Dashboard</a>
+            <a href="#" id="out">Log out</a>
+
+        </div>
+    </nav>
+
+    <div class="home-header">
+        <div class="welcome-text">
+            <h1> Welcome, <span id="username"></span> 👋 </h1>
+            <p> Track your income, manage your expenses and build a better tomorrow. </p>
+        </div>
+        <button class="add-income-btn" onclick="addIncome()"> <i class="fa-solid fa-sack-dollar"></i> + Add Income
+        </button>
+    </div>
+
+
+    <div class="main">
+
+        <h2>Today's Expense</h2>
+
+        <label for="category">Category</label>
+        <input type="text" id="category" placeholder="Category of expense...">
+
+        <label for="description">Description</label>
+        <input type="text" id="description" placeholder="Description of expense...">
+
+        <label for="price">Price</label>
+        <input type="number" id="price" placeholder="price...">
+
+        <div class="btn_grp">
+            <button onclick="add()">Save Expense</button>
+            <button onclick="cancel()">Cancel</button>
+        </div>
+
+    </div>
+
+    <!-- Income Overlay -->
+    <div class="income-overlay" id="income-overlay">
+
+        <div class="income-modal">
+
+            <div class="income-header">
+                <div>
+                    <i class="fa-solid fa-sack-dollar"></i>
+                    <h2>Add Income</h2>
+                </div>
+
+                <button class="close-income" onclick="closeIncome()"> &times; </button>
+            </div>
+
+
+            <label for="income-source">Source</label>
+            <input type="text" id="income-source" placeholder="e.g. Salary, Allowance...">
+
+
+            <label for="income-description">Description</label>
+            <input type="text" id="income-description" placeholder="Description of income...">
+
+
+            <label for="income-amount">Amount</label>
+            <input type="number" id="income-amount" placeholder="Enter amount...">
+
+
+            <div class="income-btn-group">
+                <button class="save-income" onclick="saveIncome()"> Save Income </button>
+                <button class="cancel-income" onclick="closeIncome()"> Cancel </button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="/eel.js"></script>
+    <script src="EThome.js"></script>
+    <script src="ETlogout.js"></script>
+</body>
+
+</html>
