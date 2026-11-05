@@ -1,19 +1,8 @@
 from datetime import datetime
 import eel
 import json
-# import bottle
 
 eel.init("Ui")
-
-
-
-# @bottle.error(404)
-# def custom_404(error):
-#     page = bottle.static_file('404.html', root='Ui')
-#     page.status = 404   # keeps the correct "Not Found" status
-#     return page
-
-
 
 
 try:

@@ -91,3 +91,51 @@ async function saveIncome() {
     }
 
 }
+
+
+
+
+
+const expenseInputs = document.querySelectorAll(
+    ".main input"
+);
+
+expenseInputs.forEach((input, index) => {
+    input.addEventListener("keydown", function (event) {
+
+        if (event.key === "Enter") {
+            event.preventDefault();
+
+            if (index < expenseInputs.length - 1) {
+                expenseInputs[index + 1].focus();
+            }
+            else {
+                document.querySelector('.btn_grp button[onclick="add()"]').click();
+            }
+        }
+
+    });
+});
+
+
+
+const incomeInputs = document.querySelectorAll(
+    "#income-overlay input"
+);
+
+incomeInputs.forEach((input, index) => {
+    input.addEventListener("keydown", function (event) {
+
+        if (event.key === "Enter") {
+            event.preventDefault();
+
+            if (index < incomeInputs.length - 1) {
+                incomeInputs[index + 1].focus();
+            }
+            else {
+                document.querySelector(".save-income").click();
+            }
+        }
+
+    });
+});

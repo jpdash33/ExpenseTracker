@@ -6,9 +6,9 @@ async function show_dashboard_data()
     expense = result["expense"]
     remain = result["remain"]
 
-    document.getElementById("total-income").textContent = income;
-    document.getElementById("total-expense").textContent = expense;
-    document.getElementById("remaining-balance").textContent = remain;
+    document.getElementById("total-income").textContent = `₹ ${income}`;
+    document.getElementById("total-expense").textContent = `₹ ${expense}`;;
+    document.getElementById("remaining-balance").textContent = `₹ ${remain}`;;
 
 }
 
