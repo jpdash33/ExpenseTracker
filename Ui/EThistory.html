@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/png" href="favicon.png">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 
     <title>Expense Tracker/Expense History</title>
 </head>
@@ -44,10 +46,10 @@
         </div>
 
 
-        <div class="search-section">
+        <!-- <div class="search-section">
             <input type="text" id="search-expense" placeholder="Search expense...">
-            <button id="search-btn"> Search </button>
-        </div>
+            <button id="search-btn" onclick="search()"> Search </button>
+        </div> -->
 
         <div class="expense-table-container">
             <table class="expense-table">
@@ -58,11 +60,12 @@
                         <th>Category</th>
                         <th>Description</th>
                         <th>Amount</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody id="expense-list">
                     <tr id="no-expense-row">
-                        <td colspan="5">
+                        <td colspan="6">
                             <div class="empty-state">
                                 <div class="empty-icon">💸</div>
                                 <h3>No Transactions Yet</h3>

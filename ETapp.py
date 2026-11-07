@@ -136,6 +136,24 @@ def dashboard():
 
 
 
+@eel.expose("delete_expense")
+def delete_expense(index):
+    global e_record
+    try:
+        if 0 <= index < len(e_record):
+            e_record.pop(index)      
+
+            with open("Expense.json", "w") as f:
+                json.dump(e_record, f, indent=4)
+
+            return {"code": 200}
+
+        return {"code": 500}
+
+    except Exception as e:
+        print("Delete error:", e)
+        return {"code": 500}
+
 
 
 
