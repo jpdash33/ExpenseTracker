@@ -63,50 +63,59 @@ def get_expenses(category,desc,price):
 @eel.expose("return_history")
 def return_history():
     total = 0
-    current_month = datetime.now().strftime("%m")
-
     month_total = 0
+
+    now = datetime.now()
+    current_month = now.strftime("%m")
+    current_year = now.strftime("%Y")
 
     with open("Expense.json", "r") as fr:
         load_data = json.load(fr)
 
-    for x in range(len(load_data)):
+    for item in load_data:
+        # Date format is dd/mm/YYYY
+        _, expense_month, expense_year = item["Date"].split("/")
 
-        expense_month = load_data[x]["Date"].split("/")[1]
+        total += item["Price"]
 
-        if expense_month == current_month:
-            month_total += load_data[x]["Price"]
-        else:
-            month_total = 0
+        if expense_month == current_month and expense_year == current_year:
+            month_total += item["Price"]
 
-    for x in range(len(load_data)):
-        total += load_data[x]["Price"]
-
-    return {"tot":total,
-            "month_tot":month_total,
-            "data":load_data}
+    return {"tot": total,
+            "month_tot": month_total,
+            "data": load_data}
 
 
 @eel.expose("save_income")
-def save_income(source,desc,amount):
+def save_income(source, desc, amount):
 
-    date = datetime.now().strftime("%d/%m/%Y")
-    time = datetime.now().strftime("%H:%M:%S")
+    try:
+        amount = float(amount)
 
-    i_data = {
-        "Source":source,
-        "Description":desc,
-        "Prce":amount,
-        "Date": date,
-        "Time":time
-    }
+        if not source.strip() or amount <= 0:
+            return {"status": 400}
 
-    i_record.append(i_data)
+        date = datetime.now().strftime("%d/%m/%Y")
+        time = datetime.now().strftime("%H:%M:%S")
 
-    with open("Income.json","w") as f:
-        json.dump(i_record,f,indent=4)
+        i_data = {
+            "Source": source.strip(),
+            "Description": desc.strip(),
+            "Prce": amount,
+            "Date": date,
+            "Time": time
+        }
 
-    return {"status":200}
+        i_record.append(i_data)
+
+        with open("Income.json", "w") as f:
+            json.dump(i_record, f, indent=4)
+
+        return {"status": 200}
+
+    except Exception as e:
+        print("Save income error:", e)
+        return {"status": 500}
 
 
 @eel.expose("dashboard")
@@ -153,6 +162,84 @@ def delete_expense(index):
     except Exception as e:
         print("Delete error:", e)
         return {"code": 500}
+
+
+@eel.expose("delete_income")
+def delete_income(index):
+    global i_record
+
+    try:
+        index = int(index)
+
+        if 0 <= index < len(i_record):
+
+            i_record.pop(index)
+
+            with open("Income.json", "w") as f:
+                json.dump(i_record, f, indent=4)
+
+            return {"code": 200}
+
+        return {"code": 404}
+
+    except Exception as e:
+        print("Delete income error:", e)
+        return {"code": 500}
+
+
+@eel.expose("update_income")
+def update_income(index, source, desc, amount):
+    global i_record
+
+    try:
+        index = int(index)
+        amount = float(amount)
+
+        if index < 0 or index >= len(i_record):
+            return {"code": 404}
+
+        if not source.strip() or amount <= 0:
+            return {"code": 400}
+
+        i_record[index]["Source"] = source.strip()
+        i_record[index]["Description"] = desc.strip()
+        i_record[index]["Prce"] = amount
+
+        with open("Income.json", "w") as f:
+            json.dump(i_record, f, indent=4)
+
+        return {"code": 200}
+
+    except Exception as e:
+        print("Update income error:", e)
+        return {"code": 500}
+
+
+
+@eel.expose("show_income")
+def show_income():
+    global i_record
+
+    total = 0
+
+    for item in i_record:
+        total += float(item["Prce"])
+
+    return {
+        "data": i_record,
+        "total": total
+    }
+
+
+@eel.expose("expense_chart_data")
+def expense_chart_data():
+    global e_record
+
+    return {
+        "data": e_record
+    }
+
+
 
 
 

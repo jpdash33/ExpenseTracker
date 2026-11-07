@@ -127,7 +127,7 @@
 
 
         <!-- FUTURE GRAPH AREA -->
-        <div class="future-graph">
+        <!-- <div class="future-graph">
 
             <div class="future-icon">
                 <i class="fa-solid fa-chart-column"></i>
@@ -135,13 +135,34 @@
             <h2>Expense Analytics</h2>
             <p> Graphs and detailed expense analytics will appear here. </p>
         </div>
-    </div>
+    </div> -->
+
+        <!-- EXPENSE ANALYTICS -->
+        <div class="future-graph">
+
+            <h2>Expense Analytics</h2>
+            <p>Understand where your money goes.</p>
+
+            <div class="chart-container">
+                <div class="chart-box">
+                    <h3>Category-wise Expenses</h3>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+
+                <div class="chart-box">
+                    <h3>Monthly Expenses</h3>
+                    <canvas id="monthlyChart"></canvas>
+                </div>
+            </div>
+
+        </div>
 
 
 
-    <script src="/eel.js"></script>
-    <script src="ETdashboard.js"></script>
-    <script src="ETlogout.js"></script>
+        <script src="/eel.js"></script>
+        <script src="ETdashboard.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="ETdashboard.js"></script>
+        <script src="ETlogout.js"></script>
 </body>
-
 </html>
